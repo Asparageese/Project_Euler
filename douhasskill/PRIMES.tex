@@ -1,0 +1,81 @@
+Latex document for development of the
+unoptimized prime finder in haskell.
+
+Let the bound be denoted B, the bound is the range for computing primes.
+No primes can be even, as all even numbers are divisible by 2, all primes
+must be odd. Therefore the domain of possible primes is denotable using
+set builder notation as such;
+
+$[x+2\mid x\leftarrow[1...B]]$, this is the domain of POSSIBLE primes.
+
+The unoptimized prime finder does not take advantage of statistical methods
+or parallel computation. Hence the form of the code will be small, sweet
+and simple. When god speaks to us he does so with a lisp, like a nurse does
+to a sick child.
+
+let $[\tau]=[x+2\mid x\leftarrow[1...B]]$, multiples of a factor are divisible by that factor.
+Hence no primes can be a multiple of a member of the domain TAU.
+
+let $\lambda^m(\tau_i,B)= [\tau_i x\mid x\leftarrow[2..\dfrac{B}{2}]]$. This function takes a factor and returns a list containing
+multiples of that factor up to the bound B/2. This serves as the basis of elimination. As no numbers
+in these lists can be prime, as well as a cross elimination between lists as multiples can be contained
+in multiple lists..... common multiples, between factors...... so the intermidate step between yielding primes
+from these lists is preforming a cross elimination of the common multiples, which will significantly reduce the
+computation time. At this point the primes are like blank spaces. The multiples are ordered in increasing order,
+hence between each pair of multiples is a boundary where a prime IS present. For example....
+
+[3,5,7] PRIMES
+[6,9] ->  [7,8].
+[5,10] -> [6,7,8,9].
+[14,21] ->[15,16,17,18,19,20]. A key observation can be made, the universe between consecutive pairs of
+multiples increases as the parent factor increases, or even as the size of the numbers increase with a constant
+gap it results in increased computation load as larger numbers require longer compute times.
+the gap between $\lambda^{m,\tau_i}_{i-1}\land\lambda^{m,\tau_i}_i$ increases, the universe refers to the distance between maximum and minimum points.
+
+the problem is that even numbers are contained within the set of possible primes. but with haskell the even numbers
+can be easily be removed using a bounded range, where the bounds are the min and max points of the multiple list, with
+a step of 2, only even numbers are in the list, hence by applying a negation of this set, against the set prior.
+primes are yielded within that boundary. $\color{wildstrawberry}\text{there may be a smarter way to do this.}$
+
+$[\lambda^{m,\tau_i}_{i-1}...\lambda^{m,\tau_i}_{i}]=[\sigma^{i,i-1}]$, the set of possible primes. $[x\mid x\leftarrow[\lambda^{m,\tau_i}_{i-1}...\lambda^{m,\tau_i}_i]]\{x\mod{2}=[\tau^e]$
+the set containing even numbers within the bound.
+$\lambda^\neg(a,b) = \neg a \{b\in a$. simple negation logic
+$\lambda^\neg([\sigma^{i,i-1}],[\tau^e])=\neg [\tau^e]\in [\sigma^{i,i-1}]$. application of prior logic to remove evens from bounded range.
+the key is the negation, now working backwards it should be possible to construct a large equation encapsulating
+the entire mechanisim. as such;
+
+
+as $[\lambda^m(x,y)] = [yx\mid y\leftarrow[x...\dfrac{b}{2}]]$ and $[\tau] = [x+2\mid x\leftarrow[1...b]]$.
+by using set builder notation it is easy to apply the lambda multiple logic to the
+factor set. $[\lambda^m(x+2)\mid x\leftarrow [1...b]]=[[\tau^{\lambda_m}]]$, as
+$[[\lambda^m(\tau)]]=[yx\mid y\leftarrow [a...\dfrac{b}{2}]\ x\leftarrow[a+2\mid a\leftarrow[1...b]]]$
+$\tau$
+so of form;  $\begin{bmatrix}
+a&b\\
+c&d
+\end{bmatrix}$, this can be understood as something like a net. the multiples and the parent factor form the threads, concatentation of
+threads form the net. as threads can share common factors, a reduction can be applied to have the net only contain unique values, this results
+in the threads taking a non-uniform nature and hence the "net" object becomes sparse.
+similar negation logic can be applied as is done in the negation of evens from the bounded multiples.
+this should yield a sparse net, from a full net. the following logic attempts to roughly describe this;
+1) full net, $[[\lambda^m(\tau)]]=[yx \mid y\leftarrow[a...\dfrac{b}{2}]\ x\leftarrow[\tau]]$
+2) negation function,  $[\lambda^\neg(a,b)] = \neg b\{a_{i+n} \in b \mid i,n \in[a_i...a_{i+n}]$
+the cross negation of the full net will require the application of the negation logic to a 2-tuple of lists.
+hence a two dimensional field.
+3) cross negation of full net.
+3a) indexing the net.
+
+$\begin{bmatrix} \lambda^m_\tau&...&\lambda^m_{\tau+b}\\.&...&.\\.&...&.\\
+\lambda^{m+\tiny\frac{b}{2}}_\tau&...&\lambda^{m+\tiny\frac{b}{2}}_{\tau+b}\end{bmatrix}$, INDEXING METHOD OF THE NET, ALINING M and TAU with its y and x internal definitions.
+
+
+
+
+
+
+
+
+
+
+$\color{WildStrawberry}\text{MAIN SECTION.}$ ! above is just rough draft and thoughts.
+
