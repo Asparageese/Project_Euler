@@ -35,7 +35,7 @@ the gap between $\lambda^{m,\tau_i}_{i-1}\land\lambda^{m,\tau_i}_i$ increases, t
 the problem is that even numbers are contained within the set of possible primes. but with haskell the even numbers
 can be easily be removed using a bounded range, where the bounds are the min and max points of the multiple list, with
 a step of 2, only even numbers are in the list, hence by applying a negation of this set, against the set prior.
-primes are yielded within that boundary. $\color{wildstrawberry}\text{there may be a smarter way to do this.}$
+primes are yielded within that boundary. $\color{WildStrawberry}\text{there may be a smarter way to do this.}$
 
 $[\lambda^{m,\tau_i}_{i-1}...\lambda^{m,\tau_i}_{i}]=[\sigma^{i,i-1}]$, the set of possible primes. $[x\mid x\leftarrow[\lambda^{m,\tau_i}_{i-1}...\lambda^{m,\tau_i}_i]]\{x\mod{2}=[\tau^e]$
 the set containing even numbers within the bound.
@@ -53,11 +53,11 @@ $\tau$
 so of form;  $\begin{bmatrix}
 a&b\\
 c&d
-\end{bmatrix}$, this can be understood as something like a net. the multiples and the parent factor form the threads, concatentation of
-threads form the net. as threads can share common factors, a reduction can be applied to have the net only contain unique values, this results
-in the threads taking a non-uniform nature and hence the "net" object becomes sparse.
-similar negation logic can be applied as is done in the negation of evens from the bounded multiples.
-this should yield a sparse net, from a full net. the following logic attempts to roughly describe this;
+\end{bmatrix}$, this can be understood as something like a net. the multiples and the parent factor form the threads,
+concatentation of threads form the net. as threads can share common factors, a reduction can be applied to have the net only
+contain unique values, this results in the threads taking a non-uniform nature and hence the "net" object becomes sparse.
+similar negation logic can be applied as is done in the negation of evens from the bounded multiples. this should yield a
+sparse net, from a full net. the following logic attempts to roughly describe this;
 1) full net, $[[\lambda^m(\tau)]]=[yx \mid y\leftarrow[a...\dfrac{b}{2}]\ x\leftarrow[\tau]]$
 2) negation function,  $[\lambda^\neg(a,b)] = \neg b\{a_{i+n} \in b \mid i,n \in[a_i...a_{i+n}]$
 the cross negation of the full net will require the application of the negation logic to a 2-tuple of lists.
@@ -66,14 +66,11 @@ hence a two dimensional field.
 3a) indexing the net.
 
 $\begin{bmatrix} \lambda^m_\tau&...&\lambda^m_{\tau+b}\\.&...&.\\.&...&.\\
-\lambda^{m+\tiny\frac{b}{2}}_\tau&...&\lambda^{m+\tiny\frac{b}{2}}_{\tau+b}\end{bmatrix}$, INDEXING METHOD OF THE NET, ALINING M and TAU with its y and x internal definitions.
+\lambda^{m+\tiny\frac{b}{2}}_\tau&...&\lambda^{m+\tiny\frac{b}{2}}_{\tau+b}\end{bmatrix}$
+INDEXING METHOD OF THE NET, ALINING M and TAU with its y and x internal definitions.
+3b) combining the indexing method and negation logic to produce a sparse net.
 
-
-
-
-
-
-
+$[[\lambda^\neg([\lambda^m_\tau...\lambda^{m+\frac{B}{2}}_\tau],[\lambda^m_{\tau+1}...\lambda^{m+\frac{B}{2}}_{\tau+B}])] ]$ ! this needs to be completed. Then primes are implied in the gaps. God of the gaps.
 
 
 
