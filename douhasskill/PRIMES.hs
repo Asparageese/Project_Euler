@@ -8,7 +8,5 @@ mnet = [x*y | x <- domain, y <- [a | a <- [2..((length domain))]], (x*y <= last 
 tau = [x | x <- domain, not(any (x==) mnet)]
 main :: IO()
 main = do
-  print "BEGINING MAIN CALL"
-  print domain
   print tau
   
