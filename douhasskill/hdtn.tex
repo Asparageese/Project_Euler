@@ -43,10 +43,18 @@ The above function, is hard, I think there are very few methods that yield insig
 of the final HDTN. Taking the rate of change may be the most fruitful method. First I will explain what is ment by a pitfall.
 Quite simply. It is a hidden polynomial. Where the degree of the polynomial is dependant on the cardinality of the domain.\\
 Writing the full form of the above function with cardinality 4 results in such;\\
-$f([x_1...x_4])=x_1+x_2+x_3+x_4$ if not clear at this point, let $x = ax$ then;
+$f([x_1...x_4])=x_1+x_2+x_3+x_4$ if not clear at this point, let $x = ax$ then;\\
 $f([x_1...x_4])=a_1x_1+a_2x_2+a_3x_3+a_4x_4$, being a polynomial of the Nth degree where N = $\mid[x]\mid$\ \ : )\\
+{\color{white}-}\\
 Therefore I will make the assumption that being able to find the HDTN requires computing the roots of the polynomial via some method
 and this, might be a more efficient way of computing a HDTN without brute force addition of every single natural value. I will also
-make the second assumption that producing the divisible factors might come from deducing the coefficient of each respective term.
+make the second assumption that producing the divisible factors might come from deducing the coefficient of each respective term.\\
+{\color{white}-}\\
+Finding the roots of a polynomial is a classic ml problem, and as long as a steady pattern is present, then error correction with
+a linear approach should suffice without any probablisitic mechanisims. I will also attempt to devise a hard formulation but I feel
+my limitations as I think the formula will change dependant on the degree of the polynomial. Hence it will require devising a
+function that alters a formula, adding and maybe removing terms to match the degree. Specifically what I warn against trying at the 
+start of this section, as it involves conquring an infinity.
+
 
 \end{document}
