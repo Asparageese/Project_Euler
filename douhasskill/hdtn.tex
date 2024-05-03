@@ -1,0 +1,43 @@
+% preamble.tex
+\documentclass{article}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{xcolor}
+
+
+% main.tex
+\input{preamble}
+\begin{document}
+\maketitle
+\newpage
+\section{HDTN:Introduction}
+A highly divisible triangle number is the sum of natural numbers.\\
+The question posed in the archive of project euler, asks, what is the value of the first triangle number to have over 500 divisors.
+This seems slightly related to prime numbers as a prime is a number divisible by one and itself, so then no HDTN should be prime.
+The only prime contained in the HDTN sequence is 3 as the sum of 1 + 2. All numbers thereafter appear to be divisible.
+The point of these documents is to develop a sense of mathematical understanding in conjunction with haskell inorder to provide
+solutions that are as near to optimal as possible. This includes some deductive reasoning backed with inextensive proofs. 
+
+\section{HDTN:Insights}
+This section contains considered insights from the sequence of HDTN, the next section will be forming the general shape of
+assumptions that can be made based on these insights.\\
+{\color{white}-}\\
+Consider;\ [1,3,6,10,15], HDTN sequence of cardinality 5.\\
+0+1 = 1\\
+1+2 = 3\\
+1+2+3 = 6\\
+1+2+3+4 = 10\\
+1+2+3+4+5 = 15
+\begin{equation}f^\prime(y,x) = \dfrac{y_n - y_\emptyset}{x_n,x_\emptyset}\end{equation} 
+Simplistic form of rate of change with respect to another variable.\\
+$consider; \\ 0+1=1\\a+b=b\ when\ a=0$\ hence\\ $1+2+3+4+5=15\\a+b+c+d+e=f$\ with further simplifications as such;\\
+$x_1+x_2+x_3+x_4+x_5=y_5$
+
+
+
+
+
+
+
+
+\end{document}
