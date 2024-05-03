@@ -42,8 +42,13 @@ Let $\tau$ denote the set containing odd numbers within the bound.
 Conditional logic will be applied inorder to optimize what multiples are yielded, i.e a multiple of 3 is 6, but 6 is even and hence not
 prime.\\
 Let the set of multiples be denoted $\sigma$.
-\begin{equation}[\sigma]=\begin{bmatrix}[m\in[2...|\tau|]\mid m]\rightarrow x\ [\tau_i\in\tau]\rightarrow y\mid\begin{cases}x*y\mid x*y <= \ 
-\tau_{\mid\tau\mid}\\ \land\\x*y\mid x*y \mod 2 \not = 0\end{cases}\end{bmatrix}\end{equation}
+
+\begin{equation}
+	[\sigma]=\begin{bmatrix} [m,\tau_i \in [2...\mid\tau\mid],\tau]\rightarrow x,y \mid
+	\begin{cases}x*y\mid x*y <= \ \tau_{\mid\tau\mid}\\ \land\\x*y\mid x*y \mod 2 \not = 0\end{cases}\end{bmatrix}
+\end{equation}
+
+
 \section{EXCLUSION LOGIC}
 If a member of $\tau$ not in $\sigma$ then it is prime.
 Hence, let $\lambda^\prime([a],[b])$ denote the conditional function that operates on two sets and evaluates the existance of $a\in b$.
