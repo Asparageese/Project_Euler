@@ -1,0 +1,6 @@
+PWD D:/LAINLAINLAINLAINLAIN/Project_Euler/douhasskill
+INPUT d:/texlive/2024/texmf.cnf
+INPUT d:/texlive/2024/texmf-dist/web2c/texmf.cnf
+INPUT d:/texlive/2024/texmf-var/web2c/pdftex/latex.fmt
+INPUT amicable_numbers.tex
+OUTPUT amicable_numbers.log
