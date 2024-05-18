@@ -11,46 +11,30 @@
 \maketitle
 \newpage
 \section{HDTN:Introduction}
-A highly divisible triangle number is the sum of natural numbers.\\
-The question posed in the archive of project euler, asks, what is the value of the first triangle number to have over 500 divisors.
-This seems slightly related to prime numbers as a prime is a number divisible by one and itself, so then no HDTN should be prime.
-The only prime contained in the HDTN sequence is 3 as the sum of 1 + 2. All numbers thereafter appear to be divisible.
-The point of these documents is to develop a sense of mathematical understanding in conjunction with haskell inorder to provide
-solutions that are as near to optimal as possible. This includes some deductive reasoning backed with inextensive proofs. 
-
-\section{HDTN:Disstillation}
-This section contains considered insights from the sequence of HDTN, the next section will be forming general assumptions 
-that can be made based on these insights.\\
-{\color{white}-}\\
-Consider;\ [1,3,6,10,15], HDTN sequence of cardinality 5.\\
-0+1 = 1\\
+This is a LaTeX document backed with Haskell, displaying a brute
+force method of computing the divisors of highly divisible triangle
+numbers. Two methods will be used, initally brute force search,
+and second a mathematical distillation of the sequence to optimize
+the required computations towards a minimal point.
+\section{Brute Force Search}
+The following section describes the process of searching for divisors for HDTNs with a brute force approach. 
+Through constructive mathematics a small set of functions can be denoted for finding HDTN, and the structure
+should be similar to the unoptimized prime finder as essentially it is a prime check for non prime numbers.
+But the key difference is calculating the divisors is essential as the divisors are being seached for,
+not for numbers that lack divisors.
+\subsection{BFS: General Intuitions}
 1+2 = 3\\
-1+2+3 = 6\\
+1+2+3= 6\\
 1+2+3+4 = 10\\
 1+2+3+4+5 = 15\\
-Algebraic mapping of such;\\
-$0+1=1\\a+b=b\ when\ a=0$\ hence\\ $1+2+3+4+5=15\\a+b+c+d+e=f$\\ with a further simplification as such;\\
-$x_1+x_2+x_3+x_4+x_5=y_5$\\
+1+2+3+4+5+6 = 21\\
+1+2+3+4+5+6+7 = 28\\
 {\color{white}-}\\
-induction into sets;\\
-$x_i\in[x_n...x_d]$\ $y_i\in[y_n...y_d]$\\ as a set X maps to a singular value, it is expressed as such;\\
-$f([x_i...x_d])=y_d$, where the function is of the form;
-\begin{equation}f([x_i...x_d])=\sum_i^d=x_i+x_{i+1}\end{equation}
-\newpage
-\section{HDTN:Considerations A}
-Carefully. Very, carefully, avoid a pitfall, that being the dissolution of a pattern with hidden infinities.
-The above function, is hard, I think there are very few methods that yield insights into the function and 
-generation of the final HDTN. Taking the rate of change may be the most fruitful method. First I will explain
-what is ment by a pitfall. Quite simply. It is a hidden polynomial. Where the degree of the polynomil i
-dependant on the cardinality of the domain.\\ Writing the full form of the above function with cardinality
-4 results in such;\\ $f([x_1...x_4])=x_1+x_2+x_3+x_4$ if not clear at this point, let $x = ax$ then;\\
-$f([x_1...x_4])=a_1x_1+a_2x_2+a_3x_3+a_4x_4$, being a polynomial of the Nth degree where N = $\mid[x]\mid$\ \ : )\\
-{\color{white}-}\\
-I think, an easy way to do this is brute force approximation of the coefficients by using a boolean
-distance function that operates over iter1 and iter2 if the loss is less at iter2 than at iter1 then 
-the change in parameters is positive and approching approximation. This, becomes a difficult approach for larger
-mapping functions as the amount of "false" positives increase. Keenly take note, this is therefore not a smart
-approach. Unless guided by a quantum mechanisim.\\
-
-
+A HDTN is the sum of consecutive natural numbers, not all natural numbers in the summing sequence is a
+divisor of the HDTN. The minimum multiple is two as a double of x. Therefore all possible divisors lie
+withing y/2. Looking at the above sequence, the difference between the last number in the summing sequence
+and the sum increases by an exponential degree. For now a bound y/2 is sufficient, but an optimized search
+would vary the bound dependant on y, possible allowing it to be y/4 and even lower, but implimenting such a
+bound would require some precision as if the variable bound is incorrect then divisors will be missed during
+the search.
 \end{document}

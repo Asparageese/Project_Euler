@@ -1,0 +1,51 @@
+% preamble.tex
+\documentclass{article}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{color}
+
+
+% main.tex
+\input{preamble}
+\begin{document}
+\maketitle
+\newpage
+\section{HDTN:Introduction}
+A highly divisible triangle number is the sum of natural numbers.\\
+The question posed in the archive of project euler, asks, what is the value of the first triangle number to have over 500 divisors.
+This seems slightly related to prime numbers as a prime is a number divisible by one and itself, so then no HDTN should be prime.
+The only prime contained in the HDTN sequence is 3 as the sum of 1 + 2. All numbers thereafter appear to be divisible.
+The point of these documents is to develop a sense of mathematical understanding in conjunction with haskell inorder to provide
+solutions that are as near to optimal as possible. This includes some deductive reasoning backed with inextensive proofs. 
+
+\section{HDTN:Disstillation}
+This section contains considered insights from the sequence of HDTN, the next section will be forming general assumptions 
+that can be made based on these insights.\\
+{\color{white}-}\\
+Consider;\ [1,3,6,10,15], HDTN sequence of cardinality 5.\\
+0+1 = 1\\
+1+2 = 3\\
+1+2+3 = 6\\
+1+2+3+4 = 10\\
+1+2+3+4+5 = 15\\
+Algebraic mapping of such;\\
+$0+1=1\\a+b=b\ when\ a=0$\ hence\\ $1+2+3+4+5=15\\a+b+c+d+e=f$\\ with a further simplification as such;\\
+$x_1+x_2+x_3+x_4+x_5=y_5$\\
+{\color{white}-}\\
+induction into sets;\\
+$x_i\in[x_n...x_d]$\ $y_i\in[y_n...y_d]$\\ as a set X maps to a singular value, it is expressed as such;\\
+$f([x_i...x_d])=y_d$, where the function is of the form;
+\begin{equation}f([x_i...x_d])=\sum_i^d=x_i+x_{i+1}\end{equation}
+\newpage
+\section{HDTN:Considerations A}
+Carefully. Very, carefully, avoid a pitfall, that being the dissolution of a pattern with hidden infinities.
+The above function, is hard, I think there are very few methods that yield insights into the function and 
+generation of the final HDTN. Taking the rate of change may be the most fruitful method. First I will explain
+what is ment by a pitfall. Quite simply. It is a hidden polynomial. Where the degree of the polynomial is
+dependant on the cardinality of the domain.\\ Writing the full form of the above function with cardinality
+4 results in such;\\ $f([x_1...x_4])=x_1+x_2+x_3+x_4$ if not clear at this point, let $x = ax$ then;\\
+$f([x_1...x_4])=a_1x_1+a_2x_2+a_3x_3+a_4x_4$, being a polynomial of the Nth degree where N = $\mid[x]\mid$\ \ : )\\
+{\color{white}-}\\
+As the data will be limited to a polynomial of the second degree linear regression is enough.
+
+eend{document}

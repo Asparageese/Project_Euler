@@ -6,4 +6,4 @@ tau = [x | x <- domain, not(any (x==) mnet)]
 main :: IO()
 main = do
   print tau
-  
+
