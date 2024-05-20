@@ -36,5 +36,60 @@ withing y/2. Looking at the above sequence, the difference between the last numb
 and the sum increases by an exponential degree. For now a bound y/2 is sufficient, but an optimized search
 would vary the bound dependant on y, possible allowing it to be y/4 and even lower, but implimenting such a
 bound would require some precision as if the variable bound is incorrect then divisors will be missed during
-the search.
+the search.\\
+1) HDTN lie in either the odd or even domain. Encapsulating both sides. Due to symetry being present in
+both odd and even domains.\\
+2) If a HDTN is odd it cannot have even divisors.\\
+3) However a even HDTN can have odd divisors.\\
+4) Hence even HDTN have more divisors as they lie in both the odd and even domain.\\
+5) The set of possible divisors is from 2 to B where B is the bound.\\
+6) If the HDTN is odd then the set of possible divisors only contains odd numbers.\\
+7) If the HDTN is even then the set of possible divisors contain all natural numbers from 2 to B.
+\subsection{BFS: Distillation of Intuitions}
+First a classification function will be definied.
+\begin{equation}
+\sigma^A(x)= y 
+\begin{cases}
+1\mid (x\mod 2 = 0) \\
+0\mid (x\mod 2 \not= 0)
+\end{cases}
+\end{equation}
+Hence a HDTN can be classified as odd or even. Based on this classification two different search methods are
+used. If odd, only odd factors are generated from 3 to the factor where y/3 = b. If even, all factors are
+checked. From two, to the factor where y*2 = b.\\
+The bounds can denoted as such;
+\begin{subequations}
+\begin{align}
+	B^O\land B^E\\
+	B^O(y) = y/3\\
+	B^E(y) = y/2
+\end{align}
+\end{subequations}
+\begin{subequations}
+\begin{align}
+	[F_{B^O}] = [F\in[3...\frac{y}{3}]\mid F]\\
+	[F_{B^E}] = [F\in[3...\frac{y}{2}]\mid F]\\
+	[F_{B^O}]_{\mid F_{B^O}\mid}*3=y\\
+	[F_{B^E}]_{\mid F_{B^E}\mid}*2=y 
+\end{align}
+\end{subequations}
+hence the maximal factor is computed, it is then infered that the respective set infers all divisors.
+constructing a set of ones equal to the size of the respective set yields a state that when summed is 
+equal to the amount of divisors respective of the HDTN. Simple, ez.\\
+Written in full form it follows as such;
+\section{BFS: Formalization}
+\begin{subequations}
+\begin{align}
+	\mathbb{B}(x)= y\begin{cases}1\mid x\mod2=0\\
+	0\mid x\mid2\not=0 \end{cases}\\
+	[F({\mathbb{B}(x)})]=[a...b]
+	\begin{cases}
+		a=2,b=\dfrac{x}{2}\mid \mathbb{B}(x)=0\\
+		{\color{white}-}\\
+		a=3,b=\dfrac{x}{3}\mid\mathbb{B}(x)\not=0
+	\end{cases}\\
+	\sum_{i=0}^{\mid[F(\mathbb{B}(x))]\mid}=[F(\mathbb{B}(x))]_i
+\end{align}
+\end{subequations}
+The above has been written into a Haskell program to show proof of concept and function.
 \end{document}
