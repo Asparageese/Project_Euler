@@ -43,5 +43,18 @@ be able to be derived for bounds based on the location of primes.
 	\begin{cases} True  \mid x \mod 2 = 0\\
 	False \mid otherwise\end{cases}
 \end{equation}
-
+\subsubsection{Encapsulation: Domain of multiples}
+\begin{equation}[\sigma]=\begin{bmatrix} [m,\tau_i \in [2...\mid\tau\mid],[\tau]]\rightarrow x,y \mid
+	\begin{cases}
+		x*y\mid x*y <= \ \tau_{\mid\tau\mid}\\ 
+		\land\\x*y\mid x*y \mod 2 \not = 0
+	\end{cases}\end{bmatrix}
+\end{equation}
+Consideration of relation to divisors, if a hdtn is a multiple of a number it is dividable by that factor.
+Hence a method of computing divisors to hdtns can be used akin to the one used in the prime number finder.
+A sequence of hdtn are computed. Then the list is parsed one bye one and the sum of the divisor list is
+returned after the divisors are mapped to one. The divisors come from computing a "hit". An inequality is
+used where the number being approched is the hdtn, if the inequality cannot be equal to the hdtn then the
+hdtn is not a multiple of that factor. Due to the implimentation of a inequality I will first make general
+protoypes in python.
 \end{document}
