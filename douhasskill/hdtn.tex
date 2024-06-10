@@ -10,51 +10,22 @@
 \maketitle
 \newpage
 \section{HDTN:Introduction}
-A highly divisible triangle number is the sum of consecutive natural numbers. The question being
-proposed is how to find the divisors of hdtn, as a hdtn can either be odd or even, we assume
-that there are two classifications of hypersymetry due to the existance of common multiples 
-between factors. From those factors the primes must be accounted for as unique factors.
-I think one can therefore disect and recombine some prime yielding logic to work for yielding
-divisors, hence I will attempt to disect the prime finding code and alter its form to yield,
-the divisors of a number, as a prime involves checking for possible divisors, and the question
-is how to find the divisors of a hdtn, which might contain primes, non-primes and both primes and 
-non-primes. : )\\
-Following I will describe the structure of the document, Encapsulation, Consideration, Decomposition,
-Recomposition.
-\section{Encapsulation}
-\subsubsection{1 consideration}
-The question is how to find the divisors of hdtn, a hdtn can be either odd or even. The above is a function
-from the PRIME finder document, allowing for classification of x as either odd or even. Naturally a question
-arises, if hdtns can be odd and even, and no prime is even hence all primes lie in the odd domain, is it
-possible that a hdtn of odd denomination is a prime, and hence has no divisors. The hdtn sequence is as
-follows:\\(1+2)=3\\(1+2+3)=6\\(1+2+3+4)=10\\(1+2+3+4+5)=15\\(1+2+3+4+5+6)=21\\ I will limit my assumptions
-to the above, assumption one as a prime number is a unique factor and hence a "building block" of other
-numbers, it fills in the gaps left by multiples due to the fact that multiplication paths of factors cover
-finite and cyclical points. Hence if the starting factors are two and three, gaps are left in 5, and 7 and 
-so on. So primes are the factors that fill the implied missing spaces. Therefore a prime cannot be the sum of
-consecutive natural numbers, starting from 1. As a small proof of this I will make use of two programs,
-one, a prime number finder, and two a hdtn sequence yielder. Then it is implied that checking numbers from
-the sets yielded by the prime number finder and hdtn sequence yielder should hold no duplicates, each number
-set should be unique, and if such is true then no prime number is a hdtn, and therefore special rules may
-be able to be derived for bounds based on the location of primes.
-\subsubsection{Encapsulation: Odd and Even identity}
-\begin{equation}
-	f_{\not O\not E}(x) = y
-	\begin{cases} True  \mid x \mod 2 = 0\\
-	False \mid otherwise\end{cases}
-\end{equation}
-\subsubsection{Encapsulation: Domain of multiples}
-\begin{equation}[\sigma]=\begin{bmatrix} [m,\tau_i \in [2...\mid\tau\mid],[\tau]]\rightarrow x,y \mid
-	\begin{cases}
-		x*y\mid x*y <= \ \tau_{\mid\tau\mid}\\ 
-		\land\\x*y\mid x*y \mod 2 \not = 0
-	\end{cases}\end{bmatrix}
-\end{equation}
-Consideration of relation to divisors, if a hdtn is a multiple of a number it is dividable by that factor.
-Hence a method of computing divisors to hdtns can be used akin to the one used in the prime number finder.
-A sequence of hdtn are computed. Then the list is parsed one bye one and the sum of the divisor list is
-returned after the divisors are mapped to one. The divisors come from computing a "hit". An inequality is
-used where the number being approched is the hdtn, if the inequality cannot be equal to the hdtn then the
-hdtn is not a multiple of that factor. Due to the implimentation of a inequality I will first make general
-protoypes in python.
+As I am a monster, I will use the prior PRIME finder documentation inorder to optimize the brute force
+search for the divisors of HDTN. When god speaks to us he does so gently, like a nurse to a sick child.\\
+A highly divisible triangle number is the sum of consecutive natural numbers, starting from one.\\ 
+The only prime HDTN is three as the sum of one, and two.\\ Hence all HDTNs greater than 3 have 
+more than one factor.\\ The divisors of the HDTN are able to be classified into two root domain types,
+even and odd.\\ However factors can either be odd or even.\\
+The need for classification for odd or even, comes from the implied root where a*b = c.\\
+{\color{white}-}\\
+If even, $\dfrac{a}{2} * b = c$, if odd, $\dfrac{a}{3} * b = c$.\\
+{\color{white}-}\\
+This can be imagined as a ladder.\\
+Where the gaps in the ladder are null space, consisting of three classification types.\\
+Odd, even, odds-that-are-prime.\\
+The factors of a HDTN of either root domain classification can be one of these three types.\\
+Then assuming base factor set yielded from  
+$\bigl(\dfrac{a}{2} * b = c\bigl)\lor\bigl(\dfrac{a}{3} * b = c\bigl)$\\
+
+
 \end{document}
